@@ -1,0 +1,13 @@
+[
+    {"id":1 , "nombre":"Jabon" , "cat":"limpieza", "precio":"10" , "stock":1 , "imagen":"img/jabon.png", "cantidadPedida":1 },
+    {"id":2 , "nombre":"Shampoo" , "cat":"limpieza", "precio":"20" , "stock":100 , "imagen":"img/shampoo.png", "cantidadPedida":1 },
+    {"id":3 , "nombre":"Toalla" , "cat":"ropa", "precio":"30" , "stock":100 , "imagen":"img/toalla.png", "cantidadPedida":1 },
+    {"id":4 , "nombre":"Cepillo" , "cat":"limpieza", "precio":"40" , "stock":100 , "imagen":"img/cepillo.png", "cantidadPedida":1 },
+    {"id":5 , "nombre":"Cortina" , "cat":"ropa", "precio":"50" , "stock":100 , "imagen":"img/cortina.png", "cantidadPedida":1 },
+    {"id":6 , "nombre":"Porta Cepillo" , "cat":"accesorios", "precio":"60" , "stock":100 , "imagen":"img/pcepillo.png", "cantidadPedida":1 },
+    {"id":7 , "nombre":"Jabonera" , "cat":"accesorios", "precio":"70" , "stock":100 , "imagen":"img/jabonera.png", "cantidadPedida":1 },
+
+    {"id":8 , "nombre":"Bata" , "cat":"ropa", "precio":"80" , "stock":100 , "imagen":"img/bata.png", "cantidadPedida":1 },
+    {"id":9 , "nombre":"Alfombra" , "cat":"accesorios", "precio":"90" , "stock":100 , "imagen":"img/alfombra.png", "cantidadPedida":1 }
+
+]

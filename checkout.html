@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
+      crossorigin="anonymous"
+    />
+    <!-- Custom styles for this template -->
+    <link href="pricing.css" rel="stylesheet" />
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Todo Limpieza</title>
+  </head>
+  <body>
+    <div class="container py-3">
+      <header>
+        <div
+          class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom"
+        >
+          <a
+            href="/todolimpieza/index.html"
+            class="d-flex align-items-center text-dark text-decoration-none"
+          >
+            <img src="img/logo.png" alt="Todo Limpieza" title="Todo Limpieza" />
+          </a>
+
+          <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
+            <a
+              class="me-3 py-2 text-dark text-decoration-none btn btn-info"
+              href="index.html"
+            >
+              Agregar Productos
+            </a>
+            <a
+              id="hayCarro"
+              class="me-3 py-2 text-dark text-decoration-none"
+              href="checkout.html"
+            ></a>
+          </nav>
+        </div>
+      </header>
+
+      <main>
+        <!-- Render Carro-->
+        <div class="table-responsive">
+          <h3>Tu pedido</h3>
+          <table class="table text-center" border="1">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>cantidad</th>
+                <th>Precio</th>
+                <th>Subtotal</th>
+                <th>Borrar</th>
+              </tr>
+            </thead>
+
+            <tbody id="carro"></tbody>
+          </table>
+          <span id="totalCarro"></span>
+        </div>
+
+        <p style="margin-top: 30px">
+          Completa con tus datos para enviarnos tu pedido.
+        </p>
+        <form id="form">
+          <!-- 2 column grid layout with text inputs for the first and last names -->
+          <div class="row mb-4">
+            <div class="col">
+              <div class="form-outline">
+                <input
+                  type="text"
+                  id="form6Example1"
+                  class="form-control"
+                  name="nombre"
+                  required
+                />
+                <label class="form-label" for="form6Example1">Nombre</label>
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-outline">
+                <input
+                  type="text"
+                  id="form6Example2"
+                  class="form-control"
+                  name="apellido"
+                />
+                <label class="form-label" for="form6Example2">Apellido</label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Text input -->
+          <div class="row mb-4">
+            <div class="col">
+              <div class="form-outline">
+                <input
+                  type="text"
+                  id="form6Example4"
+                  class="form-control"
+                  name="direccion"
+                  required
+                />
+                <label class="form-label" for="form6Example4">Direccion</label>
+              </div>
+            </div>
+
+            <!-- Email input -->
+            <div class="col">
+              <div class="form-outline">
+                <input
+                  type="email"
+                  id="form6Example5"
+                  class="form-control"
+                  name="email"
+                  required
+                />
+                <label class="form-label" for="form6Example5">Email</label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Message input -->
+          <div class="form-outline mb-4">
+            <textarea
+              name="textarea"
+              class="form-control"
+              id="form6Example7"
+              rows="4"
+            ></textarea>
+            <label class="form-label" for="form6Example7">Info adicional</label>
+          </div>
+
+          <!-- datos carro -->
+          <input
+            type="hidden"
+            readonly
+            class="form-control-plaintext"
+            id="totalCarroMail"
+            value=""
+            name="totalCarro"
+          />
+
+          <input
+            type="hidden"
+            readonly
+            class="form-control-plaintext"
+            id="carroMail"
+            value=""
+            name="carroMail"
+          />
+
+          <!-- Submit button -->
+          <input
+            type="submit"
+            class="btn btn-info"
+            id="button"
+            value="Enviar Pedido"
+          />
+        </form>
+        <script
+          type="text/javascript"
+          src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"
+        ></script>
+
+        <script type="text/javascript">
+          emailjs.init("AUipyVL_LHYBzCzBy");
+        </script>
+      </main>
+      <footer class="pt-4 my-md-5 pt-md-5 border-top">
+        <div class="row">
+          <div class="col-12 col-md">
+            <small class="d-block mb-3 text-muted"
+              >&copy; 2017–2022 - Todo Limpieza
+            </small>
+          </div>
+          <div class="col-6 col-md"><p>Todo en productos de limpieza</p></div>
+
+          <div class="col-6 col-md">
+            <p>Av. Rivadavia 6060 - CABA</p>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+  <!--<script src="js/main.js"></script>-->
+  <script src="js/checkout.js"></script>
+  <script>
+    const btn = document.getElementById("button");
+
+    document
+      .getElementById("form")
+      .addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        btn.value = "Enviando...";
+
+        const serviceID = "default_service";
+        const templateID = "template_xu4uodj";
+
+        emailjs.sendForm(serviceID, templateID, this).then(
+          () => {
+            btn.value = "Enviar Pedido";
+            alert("Pedido Enviado!");
+          },
+          (err) => {
+            btn.value = "Enviar Pedido";
+            alert(JSON.stringify(err));
+          }
+        );
+      });
+  </script>
+</html>
